@@ -1,0 +1,108 @@
+/* product.css */
+
+/* Style the navbar */
+.navbar {
+  margin-bottom: 0px;
+  padding: 20px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+.navbar-brand img {
+  max-width: 35px;
+  max-height: 35px;
+  width: auto;
+  height: auto;
+  border-style: none;
+}
+
+
+/* Styling the main heading */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+
+}
+
+  /* Style the container */
+  .container {
+    max-width: 900px; /* Set max-width for the container */
+    overflow-x: hidden;
+    
+    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+  .container::-webkit-scrollbar {
+    display: none;
+}
+  /* Style the sections */
+  .sellers h2 {
+    margin-bottom: 20px; /* Add margin below section headings */
+    text-align: center; /* Center-align section headings */
+  }
+  
+  /* Style the cards */
+  .card {
+    border: 1px solid #e0e0e0; /* Add border to cards */
+    border-radius: 5px; /* Add border-radius to cards */
+  }
+  
+  .card-title {
+    font-weight: bold; /* Make card titles bold */
+  }
+  
+  .card-text {
+    margin-bottom: 10px; /* Add margin below card text */
+  }
+  
+  /* Style the buttons */
+  .btn-primary {
+    margin-top: 20px; /* Add margin above the primary button */
+    display: block; /* Make the button a block element */
+    margin-left: auto; /* Center-align the button */
+    margin-right: auto; /* Center-align the button */
+  }
+  
+  /* Style the orders display */
+  #orders {
+    margin-top: 20px; /* Add margin above orders display */
+    border: 1px solid #e0e0e0; /* Add border to orders display */
+    padding: 10px; /* Add padding to orders display */
+    border-radius: 5px; /* Add border-radius to orders display */
+  }
+h2{
+  margin-right: 800px;
+}
+  
+.seller {
+      background-color: #123119;
+      border-radius: 20px;
+  }
+
+span{
+    color: #ffffff;
+    text-align: center;
+  }
+ img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  display: block; /* Ensure the image is a block element to apply margin auto */
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* You may adjust this width as necessary */
+}
+
+
+/*img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}*/
+.btn-primary{
+  margin-top: 20px;
+  background-color: orangered;
+  border-radius: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+}

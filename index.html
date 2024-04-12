@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="index.css">
+<title>Hardware Hub</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="logo3.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Hardware Hub
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="products.html">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="mt-5">Hardware<br>Hub</h1>
+</div>
+
+<div class="container-fluid text-light py-5">
+  <div class="container">
+    <p><span>Welcome to Hardware Hub, your ultimate destination for all things hardware! With user-friendly navigation, detailed product descriptions, and competitive prices, Hardware Hub makes shopping for hardware a breeze. Shop with confidence and enjoy fast shipping. Elevate your computing experience with Hardware Hub today!</span  ></p>
+    <button id="getStartedBtn" class="btn btn-primary btn-lg mt-3">Get Started</button>
+  </div>
+</div>
+
+<div class="form-container" id="loginForm" style="display: none;">
+  <form class="form-box p-4 shadow">
+    <h2 class="text-center mb-4">Login</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" name="username" required>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" name="password" required>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="rememberMe">
+      <label class="form-check-label" for="rememberMe">Remember Me</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+    <p class="text-center mt-3">Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
+  </form>
+</div>
+
+
+<div class="form-container" id="registerForm" style="display: none;">
+  <form class="form-box p-4 shadow">
+    <h2 class="text-center mb-4">Register</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" name="newusername" required>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" name="newpassword" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    <p class="text-center mt-3">Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+  </form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#getStartedBtn").click(function(){
+      $("#loginForm").toggle();
+      $("#registerForm").toggle();
+    });
+
+    // Add an event listener to the login form submission
+    $("#loginForm form").submit(function(event){
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Hide the login form
+      $("#loginForm").hide();
+      // You can add further logic here, such as sending the login data to a server via AJAX
+    });
+  });
+</script>
+<script>
+  function showRegisterForm() {
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+  }
+
+  function showLoginForm() {
+    document.getElementById("registerForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
+  }
+  
+</script>
+<script>
+  $(document).ready(function(){
+    // Check if rememberMe cookie exists and fill in the login fields
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('rememberMe='))) {
+      let rememberMe = document.cookie.split(';').find(c => c.trim().startsWith('rememberMe=')).split('=')[1];
+      if (rememberMe === "true") {
+        let username = localStorage.getItem("username");
+        let password = localStorage.getItem("password");
+        if (username && password) {
+          $("#username").val(username);
+          $("#password").val(password);
+        }
+      }
+    }
+
+    // Add an event listener to the login form submission
+    $("#loginForm form").submit(function(event){
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Hide the login form
+      $("#loginForm").hide();
+      // You can add further logic here, such as sending the login data to a server via AJAX
+
+      // Save username and password to localStorage if "Remember Me" is checked
+      if ($("#rememberMe").prop("checked")) {
+        localStorage.setItem("username", $("#username").val());
+        localStorage.setItem("password", $("#password").val());
+        document.cookie = "rememberMe=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+      } else {
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+        document.cookie = "rememberMe=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+    });
+  });
+</script>
+</body>
+</html>
